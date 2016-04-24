@@ -57,7 +57,7 @@ def main():
             if (f1 > 10 or f2 > 10 or f3 > 10):
                 print " You Entered a wrong Value1"
                 quit()
-
+            
             if  (f1 != 10):
                 if f1+f2 > 10:
                     print " You Entered a wrong Value2"
@@ -97,7 +97,7 @@ def main():
         print a[0:21]
 
     #Calling Submain function to calculate score based on strike or spare or simple score in bowling
-    for i in range(0,19,2):
+    for i in range(0,20,2):
         x = a[i]
         y = a[i+1]
         m = a[i+2]
