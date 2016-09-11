@@ -1,0 +1,56 @@
+#Sourav Shrivastava
+#Pokemon.py
+#Kent State University
+#810836263
+
+import math
+import random
+
+#Main function accepting the details.
+def main():
+    
+    final_amount = 0
+    print "\nWarning ! Enter the no. of each pokemon types you want to buy in digits !!:"
+    p=int(input("Please Enter the no. of Pikachu :   "))
+    s=int(input("Please Enter the no. of Squirtle :   "))
+    c=int(input("Please Enter the no. of Charmander :   "))
+
+    #To check find the minimum number of any kind of pokemon bought
+    z = min(p,s,c)
+
+    #If z=0 then need to calculate for 0% discount or 10% discount
+    if z == 0:
+        if ((p+s == 0) or (s+c == 0) or (p+c == 0)):
+            final_amount = (p * 6) + (s * 5) + (c * 5)
+        else:
+            # Calculating 10% discount since z = 0 but a combination of two different pokemon is there.        
+            if p == 0:
+                x = min(s,c)
+                p1 = 0
+                s1 = s - x
+                c1 = c - x
+                final_amount = ((x * (5 + 5))* 0.9) + (s1 * 5) + (c1 * 5)
+            elif s == 0:
+                x = min (p,c)
+                p1 = p - x
+                s1 = 0
+                c1 = c - x
+                final_amount = ((x * (6 + 5))* 0.9) + (p1 * 6) + (c1 * 5)
+            else:
+                x = min(p,s)
+                p1 = p - x
+                s1 = s - x
+                c1 = 0
+                final_amount = ((x * (6 + 5))* 0.9) + (p1 * 6) + (s1 * 5)
+            
+    else:
+        # Calculating 20% discount since z > 0
+        p1 = p - z
+        s1 = s - z
+        c1 = c - z
+        final_amount = ((z * (6 + 5 + 5))* 0.8) + (p1 * 6) + (s1 * 5) + (c1 * 5)
+
+        
+    print "\nYour Final Cost is: " + str(final_amount)
+        
+main()
